@@ -8,7 +8,7 @@ from src.Enumerator import Enumerator
 parser = argparse.ArgumentParser()
 parser.add_argument("--mode", "-m", type=str, required=True, choices=[Mode.DIR, Mode.SUB], help="The operating mode")
 parser.add_argument("--address", "-a", type=str, required=True, help="IP Address or URL")
-parser.add_argument("--list", "-l", required = True, type=str, help="Path to List of Directories/Subdomains")
+parser.add_argument("--list", "-l", required=True, type=str, help="Path to List of Directories/Subdomains")
 parser.add_argument("--port", "-p", type=int, default=80, help="Target Port Number")
 parser.add_argument("--timeout", "-t", type=int, default=0.01, help="Request timeout in sec")
 
@@ -25,12 +25,16 @@ if(args.mode == Mode.DIR):
 elif(args.mode == Mode.SUB):
         mode = "Subdomain Enumeration"
 
+e = Enumerator()
+
 print("################################################################################")
 print("")
 print("Enumerus by 5f0")
 print("Directory and Subdomain Enumeration")
 print("")
 print("Selected Mode: " + mode)
+print("")
+print("Filtering for: " + str(e.codes))
 print("")
 print("################################################################################")
 
@@ -39,7 +43,7 @@ print("Starting enumeration...")
 print("")
 
 
-e = Enumerator()
+
 start = time.time()
 
 while True:
